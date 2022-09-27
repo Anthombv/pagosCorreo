@@ -41,28 +41,6 @@ export type User = {
   cellphone: string;
 };
 
-export type CloudImage = {
-  secure_url: string;
-};
-
-export type Solicitude = {
-  id?: string;
-  number: number;
-  soliciter: string;
-  typePermissions: string;
-  details: string;
-  state: string;
-  dateState: string; 
-  date: string;
-  dateS: string;
-  dateE: string;
-}
-
-export type Backup = {
-  id?: string;
-  solicitude: any | Solicitude;
-};
-
 export type Auditory = {
   id?: string;
   date: string;

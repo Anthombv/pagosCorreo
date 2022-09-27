@@ -1,73 +1,9 @@
 import mongoose from "mongoose";
 import {
-  Auditory,
-  Backup,
-  CloudImage,
-  Solicitude,
   User,
   UserDeparment,
+  Auditory
 } from "../types";
-
-const CloudImageSchema = new mongoose.Schema<CloudImage>(
-  {
-    // public_id: { type: String, },
-    secure_url: { type: String },
-  },
-  { timestamps: true }
-);
-
-
-const SolicitudeSchema = new mongoose.Schema<Solicitude>(
-  {
-    number: { type: Number },
-    soliciter: { type: String },
-    typePermissions: { type: String },
-    details: { type: String },
-    state: { type: String },
-    date: { type: String },
-    dateE: { type: String },
-    dateS: { type: String },
-    dateState: { type: String },
-  },
-  { timestamps: true }
-);
-
-// Duplicate the ID field.
-SolicitudeSchema.virtual("id").get(function () {
-  return this._id.toHexString();
-});
-
-// Ensure virtual fields are serialised.
-SolicitudeSchema.set("toJSON", {
-  virtuals: true,
-});
-
-export const SolicitudeModel =
-  mongoose.models.Solicitudes ||
-  mongoose.model("Solicitudes", SolicitudeSchema);
-
-const BackupSchema = new mongoose.Schema<Backup>(
-  {
-    solicitude: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "solicitudes",
-    },
-  },
-  { timestamps: true }
-);
-
-// Duplicate the ID field.
-BackupSchema.virtual("id").get(function () {
-  return this._id.toHexString();
-});
-
-// Ensure virtual fields are serialised.
-BackupSchema.set("toJSON", {
-  virtuals: true,
-});
-
-export const BackupModel =
-  mongoose.models.Backups || mongoose.model("Backups", BackupSchema);
 
 const DeparmentSchema = new mongoose.Schema<UserDeparment>(
   {

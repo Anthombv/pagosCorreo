@@ -46,7 +46,11 @@ export default async function (req, res) {
       <br/>
       <div><strong>Phone:</strong> ${req.body.phone}</div>
       <br/>
-      <div><strong>Message:</strong> ${req.body.message}</div>
+      <div><strong>Proyecto:</strong> ${req.body.project}</div>
+      <br/>
+      <div><strong>Numero de Lote:</strong> ${req.body.lot}</div>
+      <br/>
+      <div><strong>Fecha que corresponde su pago:</strong> ${req.body.date}</div>
       <br/>`,
         attachments: [
           {
